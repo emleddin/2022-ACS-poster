@@ -2,15 +2,189 @@
 title: "Additional Data"
 ---
 
+```{r, include = FALSE}
+# Initialize
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(r3dmol)
+library(shiny)
+```
+
 Welcome! This site contains additional information for my poster, 
 "QM/MM Analysis of the Reaction of DNA Polymerase &kappa;",
 presented at the Spring 2022 ACS Meeting.
 
-# Reaction Path
+
+# 2M Reaction Path
 
 <center>
 
-<img src="images/test.gif" alt="Test Gif."
+<img src="images/qsm-noNEB.gif" alt="QSM path."
 style="width: 100%; height: 100%"/>
 
 </center>
+
+
+<br>
+
+## Interactive Structures (Jmol)
+<div class="r3border">
+```{r ok, echo = FALSE}
+r3dmol(
+  viewer_spec = m_viewer_spec(
+    cartoonQuality = 10,
+    lowerZoomLimit = 50,
+    upperZoomLimit = 350,
+    orthographic = TRUE),
+  id = "full",
+  elementId = "full"
+) %>%
+m_add_models_as_frames(data = "struct/full-qm.pdb", format = "pdb") %>%
+m_set_style(style = m_style_stick(radius = 0.1)) %>%
+m_add_style(style = m_style_sphere(scale=0.2)) %>%
+m_animate(options = list(step=1, loop = "forward", reps = 0)) %>%
+m_zoom_to()
+```
+<div class="r3label">QSM Path QM (hydrogens not shown!)</div>
+</div>
+
+<br>
+
+<div class="r3border">
+```{r react, echo = FALSE}
+
+r3dmol(
+  viewer_spec = m_viewer_spec(
+    cartoonQuality = 10,
+    lowerZoomLimit = 50,
+    upperZoomLimit = 350,
+    orthographic = TRUE),
+  id = "react",
+  elementId = "react"
+) %>%
+  # Add PDB (have only atoms you care about for ease)
+  m_add_model(
+    data = "struct/reactant-qm.pdb",
+    format = "pdb",
+    keepH = TRUE
+  ) %>%
+  # Set style of structures
+  m_set_style(style = m_style_stick(radius = 0.1)) %>%
+  m_add_style(style = m_style_sphere(scale=0.2)) %>%
+  # Zoom to encompass the whole scene
+  m_zoom_to()
+
+## Testing
+  # Set style of structures -- Explicit coloration
+  #m_set_style(style = m_style_stick(color = "#00cc96")) %>%
+  # Add a label of the structure -- useScreen isn't implemented!
+#  m_add_label(
+#  text = "Reactant QM",
+#  sel = m_vector3(50, 20, 0),
+#  style = m_style_label(
+#  alignment = "bottomLeft",
+#  fixed = TRUE,
+#  backgroundColor = "#00853E",
+#  backgroundOpacity = 0.9
+#  )) %>%
+#  m_set_view(arg = c(-9.69338, 2.02956, -1.18124, -200, 0, 0, 0, 1))
+#  0.539247 -0.811368 -0.225591
+```
+<div class="r3label">Reactant QM</div>
+</div>
+
+<br>
+
+<div class="r3border">
+```{r TS, echo = FALSE}
+
+r3dmol(
+  viewer_spec = m_viewer_spec(
+    cartoonQuality = 10,
+    lowerZoomLimit = 50,
+    upperZoomLimit = 350,
+    orthographic = TRUE),
+  id = "TS",
+  elementId = "TS"
+) %>%
+  # Add PDB (have only atoms you care about for ease)
+  m_add_model(
+    data = "struct/TS-qm.pdb",
+    format = "pdb",
+    keepH = TRUE
+  ) %>%
+  # Set style of structures
+  m_set_style(style = m_style_stick(radius = 0.1)) %>%
+  m_add_style(style = m_style_sphere(scale=0.2)) %>%
+  # Zoom to encompass the whole scene
+  m_zoom_to()
+```
+<div class="r3label">Transition State QM</div>
+</div>
+
+<br>
+
+<div class="r3border">
+```{r OPO, echo = FALSE}
+
+r3dmol(
+  viewer_spec = m_viewer_spec(
+    cartoonQuality = 10,
+    lowerZoomLimit = 50,
+    upperZoomLimit = 350,
+    orthographic = TRUE),
+  id = "OPO",
+  elementId = "OPO"
+) %>%
+  # Add PDB (have only atoms you care about for ease)
+  m_add_model(
+    data = "struct/OPO-qm.pdb",
+    format = "pdb",
+    keepH = TRUE
+  ) %>%
+  # Set style of structures
+  m_set_style(style = m_style_stick(radius = 0.1)) %>%
+  m_add_style(style = m_style_sphere(scale=0.2)) %>%
+  # Zoom to encompass the whole scene
+  m_zoom_to()
+```
+<div class="r3label">Intermediate QM</div>
+</div>
+
+<br>
+
+<div class="r3border">
+```{r prod, echo = FALSE}
+
+r3dmol(
+  viewer_spec = m_viewer_spec(
+    cartoonQuality = 10,
+    lowerZoomLimit = 50,
+    upperZoomLimit = 350,
+    orthographic = TRUE),
+  id = "prod",
+  elementId = "prod"
+) %>%
+  # Add PDB (have only atoms you care about for ease)
+  m_add_model(
+    data = "struct/product-qm.pdb",
+    format = "pdb",
+    keepH = TRUE
+  ) %>%
+  # Set style of structures
+  m_set_style(style = m_style_stick(radius = 0.1)) %>%
+  m_add_style(style = m_style_sphere(scale=0.2)) %>%
+  # Zoom to encompass the whole scene
+  m_zoom_to()
+```
+<div class="r3label">Product QM</div>
+</div>
+
+<br>
+
+# References
+- Jmol: an open-source Java viewer for chemical structures in 3D. [http://www.jmol.org/](http://www.jmol.org/)
+- R3dmol: an R package for visualizing molecular data in 3D. [https://github.com/swsoyee/r3dmol](https://github.com/swsoyee/r3dmol)

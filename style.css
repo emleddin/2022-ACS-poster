@@ -75,6 +75,23 @@ a:link {
 
 div.footer a:link, fab:link { color: #00853E;}
 
+/* Add black border for JSmol. r3dmol only does top & left wo sizing. */
+.r3border {
+    border-style: solid solid solid solid;
+    border-color: black;
+}
+
+/* Add label for each rep! */
+.r3label {
+    display: inline-flex;
+    left: 16px;
+    font-size: 18px;
+    color: white;
+    background-color: #00853E;
+    padding: 5px;
+    margin-right: 0;
+}
+
 /* Dark Mode was #2B2B2B */
 @media (prefers-color-scheme: dark) {
 a:link {
@@ -93,6 +110,12 @@ fab-twitter { color: #E87500;}
 body {
     background-color: #1F222A;
     color: white;
+}
+
+/* Add border for JSmol. */
+.r3border {
+    border-style: solid solid solid solid;
+    border-color: white;
 }
 
 .list-group-item.active, .list-group-item.active:hover,
@@ -299,3 +322,4 @@ sm-12 md-8 lg-9
     background-color: transparent;
     border-top: none;
 }
+
