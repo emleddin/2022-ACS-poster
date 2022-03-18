@@ -1,0 +1,19 @@
+name: "2022 ACS Poster"
+output_dir: "."
+# Using _navbar.html takes precedence!
+#navbar:
+#  title: "2022 ACS Poster"
+#  left:
+#    - text: "Home"
+#      href: index.html
+#    - text: "About Me"
+#      href: https://emleddin.github.io/index.html
+#    - text: "Cisneros Research Group"
+#      href: http://cisnerosres.utdallas.edu/
+output:
+  html_document:
+    theme: cosmo
+    css: 'style.css'
+    include:
+      in_header: header.html
+      after_body: footer.html
