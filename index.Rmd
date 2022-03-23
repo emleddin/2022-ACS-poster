@@ -191,7 +191,7 @@ r3dmol(
   # Zoom to encompass the whole scene
   m_zoom_to()
 ```
-<!-- <div class="r3label">Product QM</div> -->
+<div class="r3label">Product QM</div>
 </div>
 
 <br>
