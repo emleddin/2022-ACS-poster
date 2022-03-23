@@ -36,7 +36,8 @@ style="width: 100%; height: 100%"/>
 r3dmol(
   viewer_spec = m_viewer_spec(
     cartoonQuality = 10,
-    lowerZoomLimit = 50,
+    #lowerZoomLimit = 50,
+    lowerZoomLimit = 0,
     upperZoomLimit = 350,
     orthographic = TRUE,
     backgroundColor="#757575"),
@@ -46,7 +47,7 @@ r3dmol(
 m_add_models_as_frames(data = "struct/full-qm.pdb", format = "pdb") %>%
 m_set_style(style = m_style_stick(radius = 0.1)) %>%
 m_add_style(style = m_style_sphere(scale=0.2)) %>%
-m_animate(options = list(step=1, loop = "forward", reps = 0)) %>%
+m_animate(options = list(step=1, interval=200, loop = "forward", reps = 0)) %>%
 m_add_outline(width = 0.05, color = "black") %>%
 m_zoom_to()
 ```
@@ -61,7 +62,7 @@ m_zoom_to()
 r3dmol(
   viewer_spec = m_viewer_spec(
     cartoonQuality = 10,
-    lowerZoomLimit = 50,
+    lowerZoomLimit = 0,
     upperZoomLimit = 350,
     orthographic = TRUE,
     backgroundColor="#757575"),
@@ -108,7 +109,7 @@ r3dmol(
 r3dmol(
   viewer_spec = m_viewer_spec(
     cartoonQuality = 10,
-    lowerZoomLimit = 50,
+    lowerZoomLimit = 0,
     upperZoomLimit = 350,
     orthographic = TRUE,
     backgroundColor="#757575"),
@@ -139,7 +140,7 @@ r3dmol(
 r3dmol(
   viewer_spec = m_viewer_spec(
     cartoonQuality = 10,
-    lowerZoomLimit = 50,
+    lowerZoomLimit = 0,
     upperZoomLimit = 350,
     orthographic = TRUE,
     backgroundColor="#757575"),
@@ -170,7 +171,7 @@ r3dmol(
 r3dmol(
   viewer_spec = m_viewer_spec(
     cartoonQuality = 10,
-    lowerZoomLimit = 50,
+    lowerZoomLimit = 0,
     upperZoomLimit = 350,
     orthographic = TRUE,
     backgroundColor="#757575"),
@@ -190,7 +191,7 @@ r3dmol(
   # Zoom to encompass the whole scene
   m_zoom_to()
 ```
-<div class="r3label">Product QM</div>
+<!-- <div class="r3label">Product QM</div> -->
 </div>
 
 <br>
@@ -198,3 +199,4 @@ r3dmol(
 # References
 - Jmol: an open-source Java viewer for chemical structures in 3D. [http://www.jmol.org/](http://www.jmol.org/)
 - R3dmol: an R package for visualizing molecular data in 3D. [https://github.com/swsoyee/r3dmol](https://github.com/swsoyee/r3dmol)
+- LICHEM Tools [https://github.com/emleddin/research-scripts/tree/main/LICHEM-tools](https://github.com/emleddin/research-scripts/tree/main/LICHEM-tools)
